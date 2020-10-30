@@ -11,6 +11,7 @@ const guessField = document.querySelector('.guessField');
 
 let guessCount = 1;
 let resetButton;
+guessSubmit.addEventListener('click', checkGuess);
 
 //conditional logic
 function checkGuess() {
@@ -29,7 +30,7 @@ function checkGuess() {
     lastResult.textContent = '!!!GAME OVER!!!';
     setGameOver();
   } else {
-    lastResult.textContent = 'Nope!';
+    lastResult.textContent = 'Nope! Try again!';
     lastResult.style.backgroundColor = 'red';
     if(userGuess < randomNumber) {
       lowOrHi.textContent = 'Last guess was too low!';
@@ -39,7 +40,6 @@ function checkGuess() {
     guessCount++;
     guessField.value = '';
     guessField.focus();
-    guessSubmit.addEventListener('click', checkGuess);
   }
   }
  //counting guesses
